@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Game</key>
+	<array>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonRuby.png</string>
+			<key>gameName</key>
+			<string>Pokemon Ruby</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonSapphire.png</string>
+			<key>gameName</key>
+			<string>Pokemon Sapphire</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonEmerald.png</string>
+			<key>gameName</key>
+			<string>Pokemon Emerald</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonFireRed.png</string>
+			<key>gameName</key>
+			<string>Pokemon Fire Red</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonLeafGreen.png</string>
+			<key>gameName</key>
+			<string>Pokemon Leaf Green</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonDiamond.png</string>
+			<key>gameName</key>
+			<string>Pokemon Diamond</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonPearl.png</string>
+			<key>gameName</key>
+			<string>Pokemon Pearl</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonPlatinum.png</string>
+			<key>gameName</key>
+			<string>Pokemon Platinum</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonHeartGold.png</string>
+			<key>gameName</key>
+			<string>Pokemon Heart Gold</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonSoulSilver.png</string>
+			<key>gameName</key>
+			<string>Pokemon Soul Silver</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonBlack.png</string>
+			<key>gameName</key>
+			<string>Pokemon Black</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonWhite.png</string>
+			<key>gameName</key>
+			<string>Pokemon White</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonBlack2.png</string>
+			<key>gameName</key>
+			<string>Pokemon Black 2</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonWhite2.png</string>
+			<key>gameName</key>
+			<string>Pokemon White 2</string>
+		</dict>
+        <dict>
+			<key>imageName</key>
+			<string>pokemonX.png</string>
+			<key>gameName</key>
+			<string>Pokemon X</string>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>pokemonY.png</string>
+			<key>gameName</key>
+			<string>Pokemon Y</string>
+		</dict>
+	</array>
+</dict>
+</plist>

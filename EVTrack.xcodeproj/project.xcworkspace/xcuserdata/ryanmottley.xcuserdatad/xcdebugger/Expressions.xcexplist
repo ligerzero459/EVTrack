@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[RemoveAdsViewController paymentQueue:updatedTransactions:]:RemoveAdsViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSUserDefaults standardUserDefaults]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OptionsViewController alertView:clickedButtonAtIndex:]:OptionsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[GameStore allGames]:GameStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataManager.manager.getGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddPokemonViewController viewDidAppear:]:AddPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokedex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameStore init]:GameStore.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataManager.manager.getGames">
+            </PersistentString>
+            <PersistentString
+               value = "games.index">
+            </PersistentString>
+            <PersistentString
+               value = "g.pokemon.count">
+            </PersistentString>
+            <PersistentString
+               value = "games.game.count">
+            </PersistentString>
+            <PersistentString
+               value = "DataManager.manager.getAllGames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate application:didFinishLaunchingWithOptions:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokedex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PokemonViewController prepareForSegue:sender:]:PokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedGame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PokemonViewController tableView:numberOfRowsInSection:]:PokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedGame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddPokemonViewController viewDidLoad]:AddPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokedex">
+            </PersistentString>
+            <PersistentString
+               value = "selectedGame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[Game addPokemonObject:]:Game.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "value.name">
+            </PersistentString>
+            <PersistentString
+               value = "self.pokemon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GamesViewController prepareForSegue:sender:]:GamesViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pvc.selectedGame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddPokemonViewController tableView:didSelectRowAtIndexPath:]:AddPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedGame">
+            </PersistentString>
+            <PersistentString
+               value = "selectedGame.getPokemon">
+            </PersistentString>
+            <PersistentString
+               value = "p.spattack">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[PokedexViewController viewDidLoad]:PokedexViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokedex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GamesViewController tableView:numberOfRowsInSection:]:GamesViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "GameStore.sharedStore.allGames.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

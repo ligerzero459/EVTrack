@@ -1,0 +1,5 @@
+* Fixed major flaw in how item EVs are added
+* Correctly added in-app purchase to remove ads
+* Layed groundwork for iCloud syncing
+* Bug fix to stop crash during game removal
+* Other bug fixes

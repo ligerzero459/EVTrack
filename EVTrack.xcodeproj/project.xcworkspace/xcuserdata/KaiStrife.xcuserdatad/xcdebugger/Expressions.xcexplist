@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[PokemonViewController viewWillAppear:]:PokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[GameStore sharedStore] allGames]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[RenamePokemonViewController dismissModalSave:]:RenamePokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[renameField text]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[iPadPokemonViewController splitViewEVDetailViewController]:iPadPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.splitViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[iPadPokemonViewController prepareForSegue:sender:]:iPadPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[EVDetailViewController viewWillAppear:]:EVDetailViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[detailNameLabel text]">
+            </PersistentString>
+            <PersistentString
+               value = "[pokemon pokemonName]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BattledPokemonViewController tableView:didSelectRowAtIndexPath:]:BattledPokemonViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MovePokemonViewController tableView:didSelectRowAtIndexPath:]:MovePokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[indexPath row]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AppDelegate application:didFinishLaunchingWithOptions:]:AppDelegate.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[gameTStore allGames]">
+            </PersistentString>
+            <PersistentString
+               value = "[UIDevice currentDevice].model">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameStore saveChanges]:GameStore.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AddPokemonViewController viewDidLoad]:AddPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "adView.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
