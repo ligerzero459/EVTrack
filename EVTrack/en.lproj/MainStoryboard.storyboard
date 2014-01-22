@@ -243,7 +243,7 @@
                                     <action selector="disableAdsPressed:" destination="DEB-hg-5z3" eventType="touchUpInside" id="uDg-kC-6wA"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nWX-8B-RYq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nWX-8B-RYq">
                                 <rect key="frame" x="98" y="346" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="30" maxX="0.0" maxY="-30"/>

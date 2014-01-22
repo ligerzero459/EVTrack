@@ -30,12 +30,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +68,7 @@
 - (IBAction)restorePurchase:(id)sender {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     HUD = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    HUD.labelText = @"Connecting to store...";
     [HUD setDelegate:self];
 }
 
@@ -82,7 +85,6 @@
         validProduct = [[response products] objectAtIndex:0];
         
         SKPayment *payment = [SKPayment paymentWithProduct:validProduct];
-        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
         
         [[SKPaymentQueue defaultQueue] addPayment:payment];
     }
@@ -115,22 +117,24 @@
                 
                 break;
                 
-            case SKPaymentTransactionStatePurchased:
+            case SKPaymentTransactionStatePurchased: {
                 
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Payment successfully processed");
                 
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"com.kaistrifeproductions.EVTracker.disableAds"];
+                NSString *productID = transaction.payment.productIdentifier;
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productID];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                HUD.mode = MBProgressHUDModeText;
+                HUD.labelText = @"Purchase successful";
+                HUD.removeFromSuperViewOnHide = YES;
+                [HUD hide:YES afterDelay:3];
                 
                 break;
-                
+            }
             case SKPaymentTransactionStateRestored:
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 NSLog(@"Transactions restored");
-                
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"com.kaistrifeproductions.EVTracker.disableAds"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 break;
                 
@@ -140,6 +144,7 @@
                     NSLog(@"Error! Payment cancelled");
                 }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                [HUD hide:YES afterDelay:1];
                 
                 break;
                 
@@ -152,7 +157,6 @@
 -(void)requestDidFinish:(SKRequest *)request
 {
     NSLog(@"Request finished");
-    [HUD hide:YES afterDelay:1];
 }
 
 -(void)request:(SKRequest *)request didFailWithError:(NSError *)error
@@ -161,6 +165,46 @@
     HUD.mode = MBProgressHUDModeText;
 	HUD.labelText = [error localizedDescription];
 	HUD.margin = 10.f;
+	HUD.removeFromSuperViewOnHide = YES;
+    [HUD hide:YES afterDelay:3];
+}
+
+- (void) paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
+{
+    NSMutableArray *purchasedItemIDs = [[NSMutableArray alloc] init];
+    
+    NSLog(@"received restored transactions: %i", queue.transactions.count);
+    for (SKPaymentTransaction *transaction in queue.transactions)
+    {
+        NSString *productID = transaction.payment.productIdentifier;
+        [purchasedItemIDs addObject:productID];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productID];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if (queue.transactions.count > 0)
+    {
+        HUD.mode = MBProgressHUDModeText;
+        HUD.labelText = @"Restore successful";
+        HUD.removeFromSuperViewOnHide = YES;
+        [HUD hide:YES afterDelay:3];
+    }
+    else
+    {
+        HUD.mode = MBProgressHUDModeText;
+        HUD.labelText = @"No purchases found";
+        HUD.removeFromSuperViewOnHide = YES;
+        [HUD hide:YES afterDelay:3];
+    }
+    
+}
+
+- (void)paymentQueue:(SKPaymentQueue*)queue restoreCompletedTransactionsFailedWithError:(NSError*)error
+{
+    
+    NSLog(@"canceled restore...");
+    HUD.mode = MBProgressHUDModeText;
+    HUD.labelText = [error localizedDescription];
+    HUD.margin = 10.f;
 	HUD.removeFromSuperViewOnHide = YES;
     [HUD hide:YES afterDelay:3];
 }

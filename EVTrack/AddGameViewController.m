@@ -49,7 +49,7 @@
     allGames = [[DataManager manager] getAllGames];
 
     // Adding iAd to tableView
-    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.disableAds"];
+    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.removeAds"];
     if (!disabledAds)
     {
         NSLog(@"Adding Ad View");
@@ -292,7 +292,7 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.disableAds"];
+    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.removeAds"];
     if (!disabledAds)
     {
         [adView setHidden:NO];
@@ -301,7 +301,7 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.disableAds"];
+    BOOL disabledAds = [[NSUserDefaults standardUserDefaults] boolForKey:@"com.kaistrifeproductions.EVTracker.removeAds"];
     if (!disabledAds)
     {
         [adView setHidden:YES];

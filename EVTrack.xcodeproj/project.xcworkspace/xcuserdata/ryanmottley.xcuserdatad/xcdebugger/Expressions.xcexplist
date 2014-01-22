@@ -3,15 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[OptionsViewController alertView:clickedButtonAtIndex:]:OptionsViewController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[RemoveAdsViewController paymentQueue:updatedTransactions:]:RemoveAdsViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "[NSUserDefaults standardUserDefaults]">
+               value = "transaction.payment.productIdentifier">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[OptionsViewController alertView:clickedButtonAtIndex:]:OptionsViewController.m">
       </ContextState>
       <ContextState
          contextName = "-[GameStore allGames]:GameStore.m">
@@ -107,13 +107,13 @@
          contextName = "-[AddPokemonViewController tableView:didSelectRowAtIndexPath:]:AddPokemonViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "selectedGame">
+               value = "p.spattack">
             </PersistentString>
             <PersistentString
                value = "selectedGame.getPokemon">
             </PersistentString>
             <PersistentString
-               value = "p.spattack">
+               value = "selectedGame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
