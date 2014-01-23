@@ -21,16 +21,30 @@
 @property (nonatomic, retain) iPadPokemonViewController *iPadView;
 
 @property (strong, nonatomic) IBOutlet UITableView *tView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *pokemonImage;
+@property (weak, nonatomic) UILabel *nameLabel;
+@property (weak, nonatomic) UIImageView *pokemonImage;
 
-@property (weak, nonatomic) IBOutlet UILabel *hpLabel;
-@property (weak, nonatomic) IBOutlet UILabel *atkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *defLabel;
-@property (weak, nonatomic) IBOutlet UILabel *spAtkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *spDefLabel;
-@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
-@property (weak, nonatomic) IBOutlet UITextField *totalBox;
+@property (weak, nonatomic) UILabel *hpLabel;
+@property (weak, nonatomic) UILabel *atkLabel;
+@property (weak, nonatomic) UILabel *defLabel;
+@property (weak, nonatomic) UILabel *spAtkLabel;
+@property (weak, nonatomic) UILabel *spDefLabel;
+@property (weak, nonatomic) UILabel *speedLabel;
+@property (weak, nonatomic) UITextField *totalBox;
+
+@property (weak, nonatomic) UILabel *battledName;
+@property (weak, nonatomic) UILabel *numberBattled;
+@property (weak, nonatomic) UIImageView *battledImage;
+@property (weak, nonatomic) UILabel *firstEV;
+@property (weak, nonatomic) UILabel *firstEVNum;
+@property (weak, nonatomic) UIView *firstEVView;
+@property (weak, nonatomic) UILabel *secondEV;
+@property (weak, nonatomic) UILabel *secondEVNum;
+@property (weak, nonatomic) UIView *secondEVView;
+@property (weak, nonatomic) UILabel *thirdEV;
+@property (weak, nonatomic) UILabel *thirdEVNum;
+@property (weak, nonatomic) UIView *thirdEVView;
+@property (weak, nonatomic) UIStepper *battledStepper;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *allPokemonBarButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;

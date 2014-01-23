@@ -47,28 +47,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    if ([[pokemon number] integerValue] < 10)
-    {
-        [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"00%d.png", [[pokemon number] intValue]]]];
-    }
-    else if ([[pokemon number] integerValue] < 100)
-    {
-        [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.png", [[pokemon number] intValue]]]];
-    }
-    else
-    {
-        [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", [[pokemon number] intValue]]]];
-    }
-    [nameLabel setText:[pokemon name]];
-    
-    [self populateLabels];
 }
 
 - (void)didReceiveMemoryWarning
@@ -225,6 +203,195 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0)
+        return 1;
+    else if (section == 1)
+        return 3;
+    else if (section == 2)
+        return 2;
+    else
+        return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 3)
+        return @"Recent Battles";
+    else
+        return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //TODO: Put data in cells
+    if (indexPath.section == 0)
+    {
+        static NSString *numberIdentifier = @"nameCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:numberIdentifier forIndexPath:indexPath];
+        
+        if (!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:numberIdentifier];
+        }
+        
+        nameLabel = (UILabel *)[cell viewWithTag:2];
+        pokemonImage = (UIImageView *)[cell viewWithTag:1];
+        
+        if ([[pokemon number] integerValue] < 10)
+        {
+            [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"00%d.png", [[pokemon number] intValue]]]];
+        }
+        else if ([[pokemon number] integerValue] < 100)
+        {
+            [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.png", [[pokemon number] intValue]]]];
+        }
+        else
+        {
+            [pokemonImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", [[pokemon number] intValue]]]];
+        }
+        
+        return cell;
+    }
+    else if (indexPath.section == 1)
+    {
+        if (indexPath.row == 0)
+        {
+            static NSString *ident = @"hpCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+            }
+            _hpLabel = (UILabel *)[cell viewWithTag:3];
+            _atkLabel = (UILabel *)[cell viewWithTag:4];
+            _defLabel = (UILabel *)[cell viewWithTag:5];
+            
+            return cell;
+        }
+        else if (indexPath.row == 1)
+        {
+            static NSString *ident = @"spAtkCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+            }
+            _spAtkLabel = (UILabel *)[cell viewWithTag:6];
+            _spDefLabel = (UILabel *)[cell viewWithTag:7];
+            _speedLabel = (UILabel *)[cell viewWithTag:8];
+            
+            return cell;
+        }
+        else if (indexPath.row == 2)
+        {
+            static NSString *ident = @"totalCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+            }
+            _totalBox = (UITextField *)[cell viewWithTag:9];
+            
+            return cell;
+        }
+    }
+    else if (indexPath.section == 2)
+    {
+        if (indexPath.row == 0)
+        {
+            static NSString *ident = @"newBattledCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+            }
+            
+            return cell;
+        }
+        if (indexPath.row == 1)
+        {
+            static NSString *ident = @"fixCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+            
+            if (!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+            }
+            [self populateLabels];
+            
+            return cell;
+        }
+    }
+    else
+    {
+        static NSString *ident = @"battledCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ident forIndexPath:indexPath];
+        
+        if (!cell)
+        {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ident];
+        }
+        
+        UIImageView *battledImage = (UIImageView *)[cell viewWithTag:10];
+        UILabel *battledName = (UILabel *)[cell viewWithTag:11];
+        UILabel *firstEV = (UILabel *)[cell viewWithTag:15];
+        UILabel *firstEVNum = (UILabel *)[cell viewWithTag:18];
+        UIView *firstEVView = (UIView *)[cell viewWithTag:12];
+        UILabel *secondEV = (UILabel *)[cell viewWithTag:16];
+        UILabel *secondEVNum = (UILabel *)[cell viewWithTag:19];
+        UIView *secondEVView = (UIView *)[cell viewWithTag:13];
+        UILabel *thirdEV = (UILabel *)[cell viewWithTag:17];
+        UILabel *thirdEVNum = (UILabel *)[cell viewWithTag:20];
+        UIView *thirdEVView = (UIView *)[cell viewWithTag:14];
+        UILabel *numberBattled = (UILabel *)[cell viewWithTag:21];
+        UIStepper *battledStepper = (UIStepper *)[cell viewWithTag:22];
+        
+        [firstEVView setBackgroundColor:[UIColor greenColor]];
+        [secondEVView setBackgroundColor:[UIColor yellowColor]];
+        [thirdEVView setBackgroundColor:[UIColor colorWithRed:0 green:0.53 blue:0.89 alpha:1]];
+        
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return 66.0;
+    }
+    else if (indexPath.section == 1)
+    {
+        if (indexPath.row == 0 || indexPath.row == 1)
+        {
+            return 66.0;
+        }
+        else
+        {
+            return 54.0;
+        }
+    }
+    else if (indexPath.section == 2)
+    {
+        return 44.0;
+    }
+    else
+    {
+        return 124.0;
+    }
 }
 
 @end
