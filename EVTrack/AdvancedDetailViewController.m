@@ -17,6 +17,7 @@
 @implementation AdvancedDetailViewController
 {
     NSNumber *test;
+    NSArray *allRecent;
 }
 
 // Synthesizing variables
@@ -82,6 +83,7 @@
 - (void)setPokemon:(Pokemon *)p
 {
     pokemon = p;
+    allRecent = [[DataManager manager] getBattled:pokemon];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -214,7 +216,7 @@
     else if (section == 2)
         return 2;
     else
-        return 1;
+        return [allRecent count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -226,6 +228,8 @@
 {
     if (section == 3)
         return @"Recent Battles";
+    else if (section == 1)
+        return @"Effort Values";
     else
         return nil;
 }
@@ -359,11 +363,54 @@
         UILabel *numberBattled = (UILabel *)[cell viewWithTag:21];
         UIStepper *battledStepper = (UIStepper *)[cell viewWithTag:22];
         
-        [firstEVView setBackgroundColor:[UIColor greenColor]];
-        [secondEVView setBackgroundColor:[UIColor yellowColor]];
-        [thirdEVView setBackgroundColor:[UIColor colorWithRed:0 green:0.53 blue:0.89 alpha:1]];
+        Battled *recentBattled = [allRecent objectAtIndex:indexPath.row];
+        
+        if ([[recentBattled number] integerValue] < 10)
+        {
+            [battledImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"00%d.png", [[recentBattled number] intValue]]]];
+        }
+        else if ([[recentBattled number] integerValue] < 100)
+        {
+            [battledImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"0%d.png", [[recentBattled number] intValue]]]];
+        }
+        else
+        {
+            [battledImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", [[recentBattled number] intValue]]]];
+        }
+        
+        [battledName setText:[recentBattled name]];
+        [numberBattled setText:[[recentBattled battled] stringValue]];
         
         return cell;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 3)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tView beginUpdates];
+        
+        [tView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [[DataManager manager] deleteBattled:[allRecent objectAtIndex:[indexPath row]] fromPokemon:pokemon];
+        
+        allRecent = [[DataManager manager] getBattled:pokemon];
+        
+        [tView endUpdates];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
 

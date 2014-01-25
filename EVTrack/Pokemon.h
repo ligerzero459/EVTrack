@@ -2,14 +2,14 @@
 //  Pokemon.h
 //  EVTrack
 //
-//  Created by Ryan Mottley on 12/28/13.
-//  Copyright (c) 2013 Kai Strife Productions. All rights reserved.
+//  Created by Ryan Mottley on 1/24/14.
+//  Copyright (c) 2014 Kai Strife Productions. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Game, Pokedex;
+@class Battled, Game, Pokedex;
 
 @interface Pokemon : NSManagedObject
 
@@ -33,5 +33,14 @@
 @property (nonatomic, retain) NSNumber * speed;
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) Pokedex *pokedex;
+@property (nonatomic, retain) NSSet *recentPokemon;
+@end
+
+@interface Pokemon (CoreDataGeneratedAccessors)
+
+- (void)addRecentPokemonObject:(Battled *)value;
+- (void)removeRecentPokemonObject:(Battled *)value;
+- (void)addRecentPokemon:(NSSet *)values;
+- (void)removeRecentPokemon:(NSSet *)values;
 
 @end

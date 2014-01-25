@@ -73,6 +73,14 @@
     return sortedArray;
 }
 
+- (NSArray *)getBattled:(Pokemon *)pokemon
+{
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:NO];
+    NSArray *sortedArray = [[pokemon recentPokemon] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    
+    return sortedArray;
+}
+
 - (NSArray *)getGames
 {
     NSArray *games = [appDelegate getData:@"Games"];
@@ -139,6 +147,13 @@
     return pokedex;
 }
 
+- (Battled *)newBattled
+{
+    Battled *battled = [NSEntityDescription insertNewObjectForEntityForName:@"Battled" inManagedObjectContext:self.managedObjectContext];
+    
+    return battled;
+}
+
 - (void)deleteGame:(Game *)selectedGame
 {
     if ([[[[appDelegate getData:@"Games"] objectAtIndex:0] index] isEqualToNumber:[[NSNumber alloc] initWithInt:1]])
@@ -152,6 +167,7 @@
 - (void)deletePokemon:(Pokemon *)selectedPokemon fromGame:(Game *)selectedGame
 {
     [selectedGame removePokemonObject:selectedPokemon];
+    [self.managedObjectContext deleteObject:selectedPokemon];
     [self saveContext];
 }
 
@@ -163,6 +179,41 @@
         [self.managedObjectContext deleteObject:[[appDelegate getData:@"Games"] objectAtIndex:1]];
     
     [self saveContext];
+}
+
+- (void)deleteBattled:(Battled *)selectedBattled fromPokemon:(Pokemon *)selectedPokemon
+{
+    [selectedPokemon removeRecentPokemonObject:selectedBattled];
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+    NSArray *sortedArray = [[selectedPokemon recentPokemon] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    for (int i = 0; i < [sortedArray count]; i++)
+    {
+        [[sortedArray objectAtIndex:i] setIndex:[NSNumber numberWithInt:i]];
+    }
+    
+    [self.managedObjectContext deleteObject:selectedBattled];
+    [self saveContext];
+}
+
+- (void)addNewRecentPokemon:(Battled *)recentBattled inPokemon:(Pokemon *)selectedPokemon
+{
+    if ([[selectedPokemon recentPokemon] count] == 10)
+    {
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+        NSArray *sortedArray = [[selectedPokemon recentPokemon] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+        
+        [self deleteBattled:[sortedArray objectAtIndex:0] fromPokemon:selectedPokemon];
+        [recentBattled setIndex:[NSNumber numberWithInt:9]];
+        
+        [selectedPokemon addRecentPokemonObject:recentBattled];
+    }
+    else
+    {
+        [recentBattled setIndex:[NSNumber numberWithInt:[[selectedPokemon recentPokemon] count]]];
+        
+        [selectedPokemon addRecentPokemonObject:recentBattled];
+    }
 }
 
 - (void)saveContext

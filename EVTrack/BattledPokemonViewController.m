@@ -271,6 +271,19 @@
     
     parentController.pokemon = pokemon;
     
+    Battled *recent = [[DataManager manager] newBattled];
+    [recent setName:[p name]];
+    [recent setNumber:[p number]];
+    [recent setHp:[p hp]];
+    [recent setAttack:[p attack]];
+    [recent setDefense:[p defense]];
+    [recent setSpattack:[p spattack]];
+    [recent setSpdefense:[p spdefense]];
+    [recent setSpeed:[p speed]];
+    [recent setBattled:[NSNumber numberWithInt:1]];
+    
+    [[DataManager manager] addNewRecentPokemon:recent inPokemon:p];
+    
     [[DataManager manager] saveContext];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Battled" representedClassName="Battled" syncable="YES">
+        <attribute name="attack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="battled" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="defense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="hp" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="spattack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="spdefense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="recentPokemon" inverseEntity="Pokemon" syncable="YES"/>
+    </entity>
+    <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="games" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Games" inverseName="game" inverseEntity="Games" syncable="YES"/>
+        <relationship name="pokemon" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pokemon" inverseName="game" inverseEntity="Pokemon" syncable="YES"/>
+    </entity>
+    <entity name="Games" representedClassName="Games" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="game" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Game" inverseName="games" inverseEntity="Game" syncable="YES"/>
+    </entity>
+    <entity name="Pokedex" representedClassName="Pokedex" syncable="YES">
+        <relationship name="pokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="pokedex" inverseEntity="Pokemon" syncable="YES"/>
+    </entity>
+    <entity name="Pokemon" representedClassName="Pokemon" syncable="YES">
+        <attribute name="attack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="defense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="hp" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="machoBrace" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pkrs" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerAnklet" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerBand" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerBelt" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerBracer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerLens" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="powerWeight" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="spattack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="spdefense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="pokemon" inverseEntity="Game" syncable="YES"/>
+        <relationship name="pokedex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokedex" inverseName="pokemon" inverseEntity="Pokedex" syncable="YES"/>
+        <relationship name="recentPokemon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Battled" inverseName="pokemon" inverseEntity="Battled" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Battled" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Game" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Games" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Pokedex" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Pokemon" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

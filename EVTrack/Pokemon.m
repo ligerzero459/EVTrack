@@ -2,11 +2,12 @@
 //  Pokemon.m
 //  EVTrack
 //
-//  Created by Ryan Mottley on 12/28/13.
-//  Copyright (c) 2013 Kai Strife Productions. All rights reserved.
+//  Created by Ryan Mottley on 1/24/14.
+//  Copyright (c) 2014 Kai Strife Productions. All rights reserved.
 //
 
 #import "Pokemon.h"
+#import "Battled.h"
 #import "Game.h"
 #import "Pokedex.h"
 
@@ -33,5 +34,6 @@
 @dynamic speed;
 @dynamic game;
 @dynamic pokedex;
+@dynamic recentPokemon;
 
 @end

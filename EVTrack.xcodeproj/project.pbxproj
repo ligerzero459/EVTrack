@@ -788,6 +788,10 @@
 		FF006794184C4341004BFE88 /* pokemonX.png in Resources */ = {isa = PBXBuildFile; fileRef = FF006792184C4341004BFE88 /* pokemonX.png */; };
 		FF006795184C4341004BFE88 /* pokemonY.png in Resources */ = {isa = PBXBuildFile; fileRef = FF006793184C4341004BFE88 /* pokemonY.png */; };
 		FF006797184C47C3004BFE88 /* 050.png in Resources */ = {isa = PBXBuildFile; fileRef = FF006796184C47C2004BFE88 /* 050.png */; };
+		FF0BD6101892C0FA007B066A /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0BD60F1892C0FA007B066A /* Pokemon.m */; };
+		FF0BD6131892C0FB007B066A /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0BD6121892C0FB007B066A /* Game.m */; };
+		FF0BD6161892C0FB007B066A /* Games.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0BD6151892C0FB007B066A /* Games.m */; };
+		FF0BD6191892C0FB007B066A /* Pokedex.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0BD6181892C0FB007B066A /* Pokedex.m */; };
 		FF0C4F9C185CB355003E6FC3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0C4F9B185CB355003E6FC3 /* SystemConfiguration.framework */; };
 		FF0C4F9E185CB35E003E6FC3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0C4F9D185CB35E003E6FC3 /* libz.dylib */; };
 		FF0C4FE2185DB886003E6FC3 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF0C4FDF185DB885003E6FC3 /* iRate.bundle */; };
@@ -825,13 +829,10 @@
 		FFCB7F00184B2CE60038B387 /* powerbracer.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCB7EF9184B2CE60038B387 /* powerbracer.png */; };
 		FFCB7F01184B2CE60038B387 /* powerlens.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCB7EFA184B2CE60038B387 /* powerlens.png */; };
 		FFCB7F02184B2CE60038B387 /* powerweight.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCB7EFB184B2CE60038B387 /* powerweight.png */; };
+		FFE68EAC1894203400B00525 /* Battled.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE68EAB1894203400B00525 /* Battled.m */; };
 		FFEC28D81871B48D009151EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFEC28D71871B48D009151EC /* Images.xcassets */; };
 		FFEC28DC1871F0C9009151EC /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEC28DB1871F0C9009151EC /* BugSense-iOS.framework */; };
 		FFEE45A5186F04B5007D3955 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45A4186F04B5007D3955 /* DataManager.m */; };
-		FFEE45A9186F1769007D3955 /* Games.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45A8186F1769007D3955 /* Games.m */; };
-		FFEE45AC186F176A007D3955 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45AB186F176A007D3955 /* Pokemon.m */; };
-		FFEE45AF186F176A007D3955 /* Pokedex.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45AE186F176A007D3955 /* Pokedex.m */; };
-		FFEE45B2186F176A007D3955 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45B1186F176A007D3955 /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1638,6 +1639,15 @@
 		FF006792184C4341004BFE88 /* pokemonX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemonX.png; sourceTree = "<group>"; };
 		FF006793184C4341004BFE88 /* pokemonY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemonY.png; sourceTree = "<group>"; };
 		FF006796184C47C2004BFE88 /* 050.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 050.png; sourceTree = "<group>"; };
+		FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EVTrackModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		FF0BD60E1892C0FA007B066A /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokemon.h; sourceTree = "<group>"; };
+		FF0BD60F1892C0FA007B066A /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
+		FF0BD6111892C0FB007B066A /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		FF0BD6121892C0FB007B066A /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		FF0BD6141892C0FB007B066A /* Games.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Games.h; sourceTree = "<group>"; };
+		FF0BD6151892C0FB007B066A /* Games.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Games.m; sourceTree = "<group>"; };
+		FF0BD6171892C0FB007B066A /* Pokedex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokedex.h; sourceTree = "<group>"; };
+		FF0BD6181892C0FB007B066A /* Pokedex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokedex.m; sourceTree = "<group>"; };
 		FF0C4F9B185CB355003E6FC3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FF0C4F9D185CB35E003E6FC3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FF0C4FDF185DB885003E6FC3 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
@@ -1683,18 +1693,12 @@
 		FFCB7EF9184B2CE60038B387 /* powerbracer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerbracer.png; sourceTree = "<group>"; };
 		FFCB7EFA184B2CE60038B387 /* powerlens.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerlens.png; sourceTree = "<group>"; };
 		FFCB7EFB184B2CE60038B387 /* powerweight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerweight.png; sourceTree = "<group>"; };
+		FFE68EAA1894203400B00525 /* Battled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Battled.h; sourceTree = "<group>"; };
+		FFE68EAB1894203400B00525 /* Battled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Battled.m; sourceTree = "<group>"; };
 		FFEC28D71871B48D009151EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FFEC28DB1871F0C9009151EC /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "BugSense-iOS.framework"; sourceTree = "<group>"; };
 		FFEE45A3186F04B5007D3955 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		FFEE45A4186F04B5007D3955 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		FFEE45A7186F1769007D3955 /* Games.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Games.h; sourceTree = "<group>"; };
-		FFEE45A8186F1769007D3955 /* Games.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Games.m; sourceTree = "<group>"; };
-		FFEE45AA186F176A007D3955 /* Pokemon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokemon.h; sourceTree = "<group>"; };
-		FFEE45AB186F176A007D3955 /* Pokemon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
-		FFEE45AD186F176A007D3955 /* Pokedex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pokedex.h; sourceTree = "<group>"; };
-		FFEE45AE186F176A007D3955 /* Pokedex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pokedex.m; sourceTree = "<group>"; };
-		FFEE45B0186F176A007D3955 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		FFEE45B1186F176A007D3955 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2671,14 +2675,16 @@
 			isa = PBXGroup;
 			children = (
 				FF9F826D1865455F003FE0A1 /* EVTrackModel.xcdatamodeld */,
-				FFEE45B0186F176A007D3955 /* Game.h */,
-				FFEE45B1186F176A007D3955 /* Game.m */,
-				FFEE45AD186F176A007D3955 /* Pokedex.h */,
-				FFEE45AE186F176A007D3955 /* Pokedex.m */,
-				FFEE45AA186F176A007D3955 /* Pokemon.h */,
-				FFEE45AB186F176A007D3955 /* Pokemon.m */,
-				FFEE45A7186F1769007D3955 /* Games.h */,
-				FFEE45A8186F1769007D3955 /* Games.m */,
+				FF0BD6171892C0FB007B066A /* Pokedex.h */,
+				FF0BD6181892C0FB007B066A /* Pokedex.m */,
+				FF0BD6141892C0FB007B066A /* Games.h */,
+				FF0BD6151892C0FB007B066A /* Games.m */,
+				FF0BD6111892C0FB007B066A /* Game.h */,
+				FF0BD6121892C0FB007B066A /* Game.m */,
+				FF0BD60E1892C0FA007B066A /* Pokemon.h */,
+				FF0BD60F1892C0FA007B066A /* Pokemon.m */,
+				FFE68EAA1894203400B00525 /* Battled.h */,
+				FFE68EAB1894203400B00525 /* Battled.m */,
 				1E2630311797897B0079C10A /* GameStore.h */,
 				1E2630321797897B0079C10A /* GameStore.m */,
 				FF9F8286186741BC003FE0A1 /* DataConverter.h */,
@@ -3633,29 +3639,31 @@
 				1EAEE68F1772EB8900F9B195 /* PokemonList.plist in Sources */,
 				1EC9B29E176BF29400BE668E /* main.m in Sources */,
 				1EC9B2A2176BF29400BE668E /* AppDelegate.m in Sources */,
+				FF0BD6161892C0FB007B066A /* Games.m in Sources */,
 				1EC9B306176E917D00BE668E /* PokemonViewController.m in Sources */,
 				1EC9B309176E954B00BE668E /* EVPokemon.m in Sources */,
-				FFEE45B2186F176A007D3955 /* Game.m in Sources */,
-				FFEE45AF186F176A007D3955 /* Pokedex.m in Sources */,
 				FF0C4FFB185DF7D3003E6FC3 /* IAPHelper.m in Sources */,
 				FF9F82591863485E003FE0A1 /* MBProgressHUD.m in Sources */,
 				1EAEE6861771807400F9B195 /* AddPokemonViewController.m in Sources */,
 				1EAEE68E1772E0A200F9B195 /* PokedexStore.m in Sources */,
 				FF9F8288186741BC003FE0A1 /* DataConverter.m in Sources */,
 				1EC2914E1773CDD000BD9AAC /* PokedexViewController.m in Sources */,
+				FF0BD6191892C0FB007B066A /* Pokedex.m in Sources */,
 				1EE9CB321783B28B003B0FA9 /* AdvancedDetailViewController.m in Sources */,
 				FF0C4FFF185DF98A003E6FC3 /* EVTrackerIAPHelper.m in Sources */,
 				1EE9CB351783BC1F003B0FA9 /* BattledPokemonViewController.m in Sources */,
+				FFE68EAC1894203400B00525 /* Battled.m in Sources */,
 				FFEE45A5186F04B5007D3955 /* DataManager.m in Sources */,
 				1E7BBD5E17FDDECA007DF801 /* RenamePokemonViewController.m in Sources */,
 				FF9F826F1865455F003FE0A1 /* EVTrackModel.xcdatamodeld in Sources */,
-				FFEE45A9186F1769007D3955 /* Games.m in Sources */,
+				FF0BD6101892C0FA007B066A /* Pokemon.m in Sources */,
 				1EE9CB381783FED6003B0FA9 /* PowerItemsViewController.m in Sources */,
 				1EE9CB3B1786081C003B0FA9 /* iPadPokemonViewController.m in Sources */,
 				FF0C4FE3185DB886003E6FC3 /* iRate.m in Sources */,
 				1E26302D179787CF0079C10A /* MovePokemonViewController.m in Sources */,
 				FF0C4FE6185DC1F9003E6FC3 /* OptionsViewController.m in Sources */,
 				1E2630331797897B0079C10A /* GameStore.m in Sources */,
+				FF0BD6131892C0FB007B066A /* Game.m in Sources */,
 				FF0C4FEC185DCC16003E6FC3 /* RemoveAdsViewController.m in Sources */,
 				FFA24D80188514EE000D4455 /* EVDetailViewController.m in Sources */,
 				1E26303617978B490079C10A /* PokemonGame.m in Sources */,
@@ -3663,7 +3671,6 @@
 				1E2AFDEC1798E1CC00D66660 /* AddGameViewController.m in Sources */,
 				1E2AFE0E1798E7A800D66660 /* GamesViewController.m in Sources */,
 				1EF9E9E8179CFAED005F297B /* UpdateViewController.m in Sources */,
-				FFEE45AC186F176A007D3955 /* Pokemon.m in Sources */,
 				FF97ED1C184B7DA900F56CC5 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3846,6 +3853,7 @@
 		FF9F826D1865455F003FE0A1 /* EVTrackModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */,
 				FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */,
 			);
 			currentVersion = FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */;
