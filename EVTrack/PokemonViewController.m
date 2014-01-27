@@ -8,14 +8,11 @@
 
 #import "PokemonViewController.h"
 #import "GameStore.h"
-#import "EVPokemon.h"
-#import "PokemonGame.h"
 #import "EVDetailViewController.h"
 #import "AdvancedDetailViewController.h"
 #import "AddPokemonViewController.h"
 #import "MovePokemonViewController.h"
 
-#import "AppDelegate.h"
 #import "Game.h"
 #import "Pokemon.h"
 

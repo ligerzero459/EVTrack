@@ -830,8 +830,8 @@
 		FFCB7F01184B2CE60038B387 /* powerlens.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCB7EFA184B2CE60038B387 /* powerlens.png */; };
 		FFCB7F02184B2CE60038B387 /* powerweight.png in Resources */ = {isa = PBXBuildFile; fileRef = FFCB7EFB184B2CE60038B387 /* powerweight.png */; };
 		FFE68EAC1894203400B00525 /* Battled.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE68EAB1894203400B00525 /* Battled.m */; };
+		FFE68EAE189436B700B00525 /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE68EAD189436B700B00525 /* BugSense-iOS.framework */; };
 		FFEC28D81871B48D009151EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFEC28D71871B48D009151EC /* Images.xcassets */; };
-		FFEC28DC1871F0C9009151EC /* BugSense-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEC28DB1871F0C9009151EC /* BugSense-iOS.framework */; };
 		FFEE45A5186F04B5007D3955 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEE45A4186F04B5007D3955 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
@@ -1695,6 +1695,7 @@
 		FFCB7EFB184B2CE60038B387 /* powerweight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerweight.png; sourceTree = "<group>"; };
 		FFE68EAA1894203400B00525 /* Battled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Battled.h; sourceTree = "<group>"; };
 		FFE68EAB1894203400B00525 /* Battled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Battled.m; sourceTree = "<group>"; };
+		FFE68EAD189436B700B00525 /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BugSense-iOS.framework"; path = "../../../Downloads/BugSense 3.6/BugSense-iOS.framework"; sourceTree = "<group>"; };
 		FFEC28D71871B48D009151EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FFEC28DB1871F0C9009151EC /* BugSense-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "BugSense-iOS.framework"; sourceTree = "<group>"; };
 		FFEE45A3186F04B5007D3955 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -1706,6 +1707,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE68EAE189436B700B00525 /* BugSense-iOS.framework in Frameworks */,
 				FF9F82791865DD6C003FE0A1 /* CoreData.framework in Frameworks */,
 				FF0C4FF8185DF79C003E6FC3 /* StoreKit.framework in Frameworks */,
 				FF0C4F9E185CB35E003E6FC3 /* libz.dylib in Frameworks */,
@@ -1714,7 +1716,6 @@
 				1EC9B83117700E3600BE668E /* QuartzCore.framework in Frameworks */,
 				1EC9B292176BF29400BE668E /* UIKit.framework in Frameworks */,
 				1EC9B294176BF29400BE668E /* Foundation.framework in Frameworks */,
-				FFEC28DC1871F0C9009151EC /* BugSense-iOS.framework in Frameworks */,
 				1EC9B296176BF29400BE668E /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1812,6 +1813,7 @@
 		1EC9B290176BF29400BE668E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFE68EAD189436B700B00525 /* BugSense-iOS.framework */,
 				FFEC28DB1871F0C9009151EC /* BugSense-iOS.framework */,
 				FF0C4FF7185DF79C003E6FC3 /* StoreKit.framework */,
 				FF0C4F9D185CB35E003E6FC3 /* libz.dylib */,
@@ -3779,6 +3781,7 @@
 					"$(inherited)",
 					"/Users/ryanmottley/Downloads/BugSense\\ 3.5.1",
 					/Users/ryanmottley/Documents/Projects/EVTrack,
+					"/Users/ryanmottley/Downloads/BugSense\\ 3.6",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EVTrack/EVTrack-Prefix.pch";
@@ -3808,6 +3811,7 @@
 					"$(inherited)",
 					"/Users/ryanmottley/Downloads/BugSense\\ 3.5.1",
 					/Users/ryanmottley/Documents/Projects/EVTrack,
+					"/Users/ryanmottley/Downloads/BugSense\\ 3.6",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EVTrack/EVTrack-Prefix.pch";
@@ -3856,7 +3860,7 @@
 				FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */,
 				FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */,
 			);
-			currentVersion = FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */;
+			currentVersion = FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */;
 			path = EVTrackModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

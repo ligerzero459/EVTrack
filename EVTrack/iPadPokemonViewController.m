@@ -324,6 +324,7 @@
 {
     [self splitViewAdvancedViewController].pokemon = pokemon;
     [[self splitViewAdvancedViewController] viewDidLoad];
+    [[self splitViewAdvancedViewController] viewWillAppear:YES];
 }
 
 

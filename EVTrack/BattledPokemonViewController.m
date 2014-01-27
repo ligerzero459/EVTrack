@@ -10,6 +10,7 @@
 #import "EVPokemon.h"
 #import "PokedexStore.h"
 #import "AdvancedDetailViewController.h"
+#import "AppDelegate.h"
 
 @implementation BattledPokemonViewController
 {
@@ -207,6 +208,8 @@
 {
     Pokemon *p;
     int multiplier = 1;
+    int foundIndex = 0;
+    BOOL exists = NO;
     
     // Determines pokemon selected from table
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -269,22 +272,45 @@
     else
         [pokemon setSpeed:[NSNumber numberWithInt:([pokemon speed].intValue + [p speed].intValue * multiplier)]];
     
-    parentController.pokemon = pokemon;
+    for (Battled *b in [[DataManager manager] getBattled:pokemon])
+    {
+        if ([[b name] isEqualToString:[p name]])
+        {
+            exists = YES;
+            foundIndex = [[b index] intValue];
+        }
+    }
     
-    Battled *recent = [[DataManager manager] newBattled];
-    [recent setName:[p name]];
-    [recent setNumber:[p number]];
-    [recent setHp:[p hp]];
-    [recent setAttack:[p attack]];
-    [recent setDefense:[p defense]];
-    [recent setSpattack:[p spattack]];
-    [recent setSpdefense:[p spdefense]];
-    [recent setSpeed:[p speed]];
-    [recent setBattled:[NSNumber numberWithInt:1]];
-    
-    [[DataManager manager] addNewRecentPokemon:recent inPokemon:p];
+    if (!exists)
+    {
+        Battled *recent = [[DataManager manager] newBattled];
+        [recent setName:[p name]];
+        [recent setNumber:[p number]];
+        [recent setHp:[p hp]];
+        [recent setAttack:[p attack]];
+        [recent setDefense:[p defense]];
+        [recent setSpattack:[p spattack]];
+        [recent setSpdefense:[p spdefense]];
+        [recent setSpeed:[p speed]];
+        [recent setBattled:[NSNumber numberWithInt:1]];
+        
+        if ([[[DataManager manager] getBattled:pokemon] count] == 10)
+        {
+            [[DataManager manager] deleteBattled:[[[DataManager manager] getBattled:pokemon] objectAtIndex:9] fromPokemon:pokemon];
+        }
+        
+        [recent setIndex:[NSNumber numberWithInt:[[[DataManager manager] getBattled:pokemon] count]]];
+        
+        [pokemon addRecentPokemonObject:recent];
+    }
+    else if (exists)
+    {
+        Battled *recent = [[[DataManager manager] getBattled:pokemon] objectAtIndex:foundIndex];
+        [recent setBattled:[NSNumber numberWithInt:([[recent battled] intValue] + 1)]];
+    }
     
     [[DataManager manager] saveContext];
+    [parentController setPokemon:pokemon];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Game.h"
-#import "Pokedex.h"
-#import "Pokemon.h"
-#import "Games.h"
-#import "Battled.h"
+@class Game, Pokedex, Pokemon, Games, Battled;
 
 @interface DataManager : NSObject
 
@@ -35,7 +31,7 @@
 - (void)deleteGames;
 - (void)deleteBattled:(Battled *)selectedBattled fromPokemon:(Pokemon *)selectedPokemon;
 
-- (void)addNewRecentPokemon:(Battled *)recentBattled inPokemon:(Pokemon *)selectedPokemon;
+- (Pokemon *)addNewRecentPokemon:(Battled *)recentBattled inPokemon:(Pokemon *)selectedPokemon;
 
 - (void)saveContext;
 

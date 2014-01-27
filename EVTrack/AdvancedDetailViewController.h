@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SplitViewBarButtonItemPresenter.h"
+#import "AppDelegate.h"
 
 @class EVPokemon;
 @class iPadPokemonViewController;

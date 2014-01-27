@@ -9,10 +9,6 @@
 #import "DataManager.h"
 
 #import "AppDelegate.h"
-#import "Pokedex.h"
-#import "Pokemon.h"
-#import "Game.h"
-#import "Games.h"
 
 @interface DataManager  ()
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -196,7 +192,7 @@
     [self saveContext];
 }
 
-- (void)addNewRecentPokemon:(Battled *)recentBattled inPokemon:(Pokemon *)selectedPokemon
+- (Pokemon *)addNewRecentPokemon:(Battled *)recentBattled inPokemon:(Pokemon *)selectedPokemon
 {
     if ([[selectedPokemon recentPokemon] count] == 10)
     {
@@ -207,12 +203,16 @@
         [recentBattled setIndex:[NSNumber numberWithInt:9]];
         
         [selectedPokemon addRecentPokemonObject:recentBattled];
+        [self saveContext];
+        return selectedPokemon;
     }
     else
     {
         [recentBattled setIndex:[NSNumber numberWithInt:[[selectedPokemon recentPokemon] count]]];
         
         [selectedPokemon addRecentPokemonObject:recentBattled];
+        [self saveContext];
+        return selectedPokemon;
     }
 }
 

@@ -80,14 +80,46 @@
     [p setSpattack:[[NSNumber alloc] initWithInt:[oldPokemon spAttack]]];
     [p setSpdefense:[[NSNumber alloc] initWithInt:[oldPokemon spDefense]]];
     [p setSpeed:[[NSNumber alloc] initWithInt:[oldPokemon speed]]];
-    [p setPkrs:[[NSNumber alloc] initWithBool:[oldPokemon PKRS]]];
-    [p setMachoBrace:[[NSNumber alloc] initWithBool:[oldPokemon MachoBrace]]];
-    [p setPowerWeight:[[NSNumber alloc] initWithBool:[oldPokemon PowerWeight]]];
-    [p setPowerBracer:[[NSNumber alloc] initWithBool:[oldPokemon PowerBracer]]];
-    [p setPowerBelt:[[NSNumber alloc] initWithBool:[oldPokemon PowerBelt]]];
-    [p setPowerLens:[[NSNumber alloc] initWithBool:[oldPokemon PowerLens]]];
-    [p setPowerBand:[[NSNumber alloc] initWithBool:[oldPokemon PowerBand]]];
-    [p setPowerAnklet:[[NSNumber alloc] initWithBool:[oldPokemon PowerAnklet]]];
+    
+    if ([oldPokemon PKRS])
+        [p setPkrs:[NSNumber numberWithInt:1]];
+    else
+        [p setPkrs:NO];
+    
+    if ([oldPokemon MachoBrace])
+        [p setMachoBrace:[NSNumber numberWithInt:1]];
+    else
+        [p setMachoBrace:NO];
+    
+    if ([oldPokemon PowerWeight])
+        [p setPowerWeight:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerWeight:NO];
+    
+    if ([oldPokemon PowerBracer])
+        [p setPowerBracer:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerBracer:NO];
+    
+    if ([oldPokemon PowerBelt])
+        [p setPowerBelt:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerBelt:NO];
+    
+    if ([oldPokemon PowerLens])
+        [p setPowerLens:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerLens:NO];
+    
+    if ([oldPokemon PowerBelt])
+        [p setPowerBand:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerBand:NO];
+    
+    if ([oldPokemon PowerAnklet])
+        [p setPowerAnklet:[NSNumber numberWithInt:1]];
+    else
+        [p setPowerAnklet:NO];
     
     return p;
 }

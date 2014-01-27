@@ -14,6 +14,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[DataManager addNewRecentPokemon:inPokemon:]:DataManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[DataManager manager] getBattled:selectedPokemon]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AdvancedDetailViewController tableView:cellForRowAtIndexPath:]:AdvancedDetailViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[recentBattled battled]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[GameStore allGames]:GameStore.m">
          <PersistentStrings>
             <PersistentString
@@ -74,17 +90,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AddPokemonViewController viewDidLoad]:AddPokemonViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "pokedex">
-            </PersistentString>
-            <PersistentString
-               value = "selectedGame">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[Game addPokemonObject:]:Game.m">
          <PersistentStrings>
             <PersistentString
@@ -92,6 +97,17 @@
             </PersistentString>
             <PersistentString
                value = "self.pokemon">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AddPokemonViewController viewDidLoad]:AddPokemonViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "pokedex">
+            </PersistentString>
+            <PersistentString
+               value = "selectedGame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -130,6 +146,17 @@
          <PersistentStrings>
             <PersistentString
                value = "GameStore.sharedStore.allGames.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AdvancedDetailViewController viewDidAppear:]:AdvancedDetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AdvancedDetailViewController tableView:didSelectRowAtIndexPath:]:AdvancedDetailViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[recent index] intValue]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

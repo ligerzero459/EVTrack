@@ -7,11 +7,11 @@
 //
 
 #import "AdvancedDetailViewController.h"
-#import "EVPokemon.h"
 #import "BattledPokemonViewController.h"
 #import "PowerItemsViewController.h"
 #import "EVDetailViewController.h"
 #import "iPadPokemonViewController.h"
+#import "PokemonViewController.h"
 #import "RenamePokemonViewController.h"
 
 @implementation AdvancedDetailViewController
@@ -76,14 +76,19 @@
 {
     [super viewWillAppear:YES];
     [[self.splitViewController.viewControllers objectAtIndex:0] viewWillAppear:YES];
-    [tView reloadData];
+    allRecent = [[DataManager manager] getBattled:pokemon];
     [self populateLabels];
+    [tView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
 }
 
 - (void)setPokemon:(Pokemon *)p
 {
     pokemon = p;
-    allRecent = [[DataManager manager] getBattled:pokemon];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -123,6 +128,7 @@
 {
     [nameLabel setText:[pokemon name]];
     [[self navigationItem] setTitle:[pokemon name]];
+    [_navBar setTitle:[pokemon name]];
     
     [_hpLabel setText:[NSString stringWithFormat:@"%d/255", [pokemon hp].intValue]];
     
@@ -185,7 +191,7 @@
     else if ([[segue identifier] isEqualToString:@"FixDetails"])
     {
         EVDetailViewController *evDetails = segue.destinationViewController;
-                
+        
         evDetails.pokemon = pokemon;
         evDetails.advDetail = self;
     }
@@ -205,6 +211,64 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 3)
+    {
+        Battled *recent = [allRecent objectAtIndex:[indexPath row]];
+        
+        int multiplier = 1;
+        
+        // Sets multiplier based on items/pkrs
+        if ([pokemon machoBrace] && [pokemon pkrs])
+        {
+            multiplier = 4;
+        }
+        else if ([pokemon machoBrace] || [pokemon pkrs])
+        {
+            multiplier = 2;
+        }
+        else
+        {
+            multiplier = 1;
+        }
+        
+        // Adds EVs while checking for items
+        // Should solve logic error on EV addition
+        if ([pokemon powerWeight])
+            [pokemon setHp:[NSNumber numberWithInt:([pokemon hp].intValue + (([recent hp].intValue + 4) * multiplier))]];
+        else
+            [pokemon setHp:[NSNumber numberWithInt:([pokemon hp].intValue + [recent hp].intValue * multiplier)]];
+        
+        if ([pokemon powerBracer])
+            [pokemon setAttack:[NSNumber numberWithInt:([pokemon attack].intValue + (([recent attack].intValue + 4) * multiplier))]];
+        else
+            [pokemon setAttack:[NSNumber numberWithInt:([pokemon attack].intValue + [recent attack].intValue * multiplier)]];
+        
+        if ([pokemon powerBelt])
+            [pokemon setDefense:[NSNumber numberWithInt:([pokemon defense].intValue + (([recent defense].intValue + 4) * multiplier))]];
+        else
+            [pokemon setDefense:[NSNumber numberWithInt:([pokemon defense].intValue + [recent defense].intValue * multiplier)]];
+        
+        if ([pokemon powerLens])
+            [pokemon setSpattack:[NSNumber numberWithInt:([pokemon spattack].intValue + (([recent spattack].intValue + 4) * multiplier))]];
+        else
+            [pokemon setSpattack:[NSNumber numberWithInt:([pokemon spattack].intValue + [recent spattack].intValue * multiplier)]];
+        
+        if ([pokemon powerBand])
+            [pokemon setSpdefense:[NSNumber numberWithInt:([pokemon spdefense].intValue + (([recent spdefense].intValue + 4) * multiplier))]];
+        else
+            [pokemon setSpdefense:[NSNumber numberWithInt:([pokemon spdefense].intValue + [recent spdefense].intValue * multiplier)]];
+        
+        if ([pokemon powerAnklet])
+            [pokemon setSpeed:[NSNumber numberWithInt:([pokemon speed].intValue + (([recent speed].intValue + 4) * multiplier))]];
+        else
+            [pokemon setSpeed:[NSNumber numberWithInt:([pokemon speed].intValue + [recent speed].intValue * multiplier)]];
+        
+        [recent setBattled:[NSNumber numberWithInt:([[recent battled] intValue] + 1)]];
+        [[DataManager manager] saveContext];
+    }
+    
+    [tView reloadData];
+    [self populateLabels];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -236,7 +300,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: Put data in cells
     if (indexPath.section == 0)
     {
         static NSString *numberIdentifier = @"nameCell";
@@ -352,16 +415,16 @@
         UIImageView *battledImage = (UIImageView *)[cell viewWithTag:10];
         UILabel *battledName = (UILabel *)[cell viewWithTag:11];
         UILabel *firstEV = (UILabel *)[cell viewWithTag:15];
-        UILabel *firstEVNum = (UILabel *)[cell viewWithTag:18];
+        UILabel *firstEVDetail = (UILabel *)[cell viewWithTag:18];
         UIView *firstEVView = (UIView *)[cell viewWithTag:12];
         UILabel *secondEV = (UILabel *)[cell viewWithTag:16];
-        UILabel *secondEVNum = (UILabel *)[cell viewWithTag:19];
+        UILabel *secondEVDetail = (UILabel *)[cell viewWithTag:19];
         UIView *secondEVView = (UIView *)[cell viewWithTag:13];
         UILabel *thirdEV = (UILabel *)[cell viewWithTag:17];
-        UILabel *thirdEVNum = (UILabel *)[cell viewWithTag:20];
+        UILabel *thirdEVDetail = (UILabel *)[cell viewWithTag:20];
         UIView *thirdEVView = (UIView *)[cell viewWithTag:14];
         UILabel *numberBattled = (UILabel *)[cell viewWithTag:21];
-        UIStepper *battledStepper = (UIStepper *)[cell viewWithTag:22];
+        // UIStepper *battledStepper = (UIStepper *)[cell viewWithTag:22];
         
         Battled *recentBattled = [allRecent objectAtIndex:indexPath.row];
         
@@ -381,6 +444,146 @@
         [battledName setText:[recentBattled name]];
         [numberBattled setText:[[recentBattled battled] stringValue]];
         
+        [firstEVView setHidden:YES];
+        [secondEVView setHidden:YES];
+        [thirdEVView setHidden:YES];
+        
+        if ([recentBattled hp].intValue > 0)
+        {
+            [firstEVView setHidden:NO];
+            [firstEVView setBackgroundColor:[UIColor colorWithRed:0.89 green:0.15 blue:0.008 alpha:1]];
+            
+            [firstEV setText:@"HP"];
+            [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled hp].intValue]];
+        }
+        if ([recentBattled attack].intValue > 0)
+        {
+            if ([firstEVView isHidden])
+            {
+                [firstEVView setHidden:NO];
+                [firstEVView setBackgroundColor:[UIColor orangeColor]];
+                
+                [firstEV setText:@"Atk"];
+                [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled attack].intValue]];
+            }
+            else if ([secondEVView isHidden])
+            {
+                [secondEVView setHidden:NO];
+                [secondEVView setBackgroundColor:[UIColor orangeColor]];
+                
+                [secondEV setText:@"Atk"];
+                [secondEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled attack].intValue]];
+            }
+        }
+        if ([recentBattled defense].intValue > 0)
+        {
+            if ([firstEVView isHidden])
+            {
+                [firstEVView setHidden:NO];
+                [firstEVView setBackgroundColor:[UIColor yellowColor]];
+                
+                [firstEV setText:@"Def"];
+                [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled defense].intValue]];
+            }
+            else if ([secondEVView isHidden])
+            {
+                [secondEVView setHidden:NO];
+                [secondEVView setBackgroundColor:[UIColor yellowColor]];
+                
+                [secondEV setText:@"Def"];
+                [secondEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled defense].intValue]];
+            }
+            else
+            {
+                [thirdEVView setHidden:NO];
+                [thirdEVView setBackgroundColor:[UIColor yellowColor]];
+                
+                [thirdEV setText:@"Def"];
+                [thirdEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled defense].intValue]];
+            }
+        }
+        if ([recentBattled spattack].intValue > 0)
+        {
+            if ([firstEVView isHidden])
+            {
+                [firstEVView setHidden:NO];
+                [firstEVView setBackgroundColor:[UIColor colorWithRed:0 green:0.53 blue:0.89 alpha:1]];
+                
+                [firstEV setText:@"SpAk"];
+                [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spattack].intValue]];
+            }
+            else if ([secondEVView isHidden])
+            {
+                [secondEVView setHidden:NO];
+                [secondEVView setBackgroundColor:[UIColor colorWithRed:0 green:0.53 blue:0.89 alpha:1]];
+                
+                [secondEV setText:@"SpAk"];
+                [secondEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spattack].intValue]];
+            }
+            else
+            {
+                [thirdEVView setHidden:NO];
+                [thirdEVView setBackgroundColor:[UIColor colorWithRed:0 green:0.53 blue:0.89 alpha:1]];
+                
+                [thirdEV setText:@"SpAk"];
+                [thirdEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spattack].intValue]];
+            }
+        }
+        if ([recentBattled spdefense].intValue > 0)
+        {
+            if ([firstEVView isHidden])
+            {
+                [firstEVView setHidden:NO];
+                [firstEVView setBackgroundColor:[UIColor greenColor]];
+                
+                [firstEV setText:@"SpDf"];
+                [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spdefense].intValue]];
+            }
+            else if ([secondEVView isHidden])
+            {
+                [secondEVView setHidden:NO];
+                [secondEVView setBackgroundColor:[UIColor greenColor]];
+                
+                [secondEV setText:@"SpDf"];
+                [secondEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spdefense].intValue]];
+            }
+            else
+            {
+                [thirdEVView setHidden:NO];
+                [thirdEVView setBackgroundColor:[UIColor greenColor]];
+                
+                [thirdEV setText:@"SpDf"];
+                [thirdEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled spdefense].intValue]];
+            }
+        }
+        if ([recentBattled speed].intValue > 0)
+        {
+            if ([firstEVView isHidden])
+            {
+                [firstEVView setHidden:NO];
+                [firstEVView setBackgroundColor:[UIColor colorWithRed:0.96 green:0.21 blue:0.91 alpha:1]];
+                
+                [firstEV setText:@"Spd"];
+                [firstEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled speed].intValue]];
+            }
+            else if ([secondEVView isHidden])
+            {
+                [secondEVView setHidden:NO];
+                [secondEVView setBackgroundColor:[UIColor colorWithRed:0.96 green:0.21 blue:0.91 alpha:1]];
+                
+                [secondEV setText:@"Speed"];
+                [secondEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled speed].intValue]];
+            }
+            else
+            {
+                [thirdEVView setHidden:NO];
+                [thirdEVView setBackgroundColor:[UIColor colorWithRed:0.96 green:0.21 blue:0.91 alpha:1]];
+                
+                [thirdEV setText:@"Speed"];
+                [thirdEVDetail setText:[NSString stringWithFormat:@"%d", [recentBattled speed].intValue]];
+            }
+        }
+        
         return cell;
     }
 }
@@ -389,7 +592,10 @@
 {
     if (indexPath.section == 3)
     {
-        return YES;
+        if ([[pokemon recentPokemon] count] == 0)
+            return NO;
+        else
+            return YES;
     }
     else
     {

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Games.h"
+#import "Game.h"
+#import "Pokemon.h"
 #import "Pokedex.h"
+#import "Battled.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
