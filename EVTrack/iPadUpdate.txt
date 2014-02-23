@@ -1,3 +1,4 @@
+* Recently battled Pokemon are now at the bottom of each Pokemon's info screen
 * Fixed major flaw in how item EVs are added
 * Correctly added in-app purchase to remove ads
 * Layed groundwork for iCloud syncing
