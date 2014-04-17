@@ -809,6 +809,7 @@
 		FF9F826F1865455F003FE0A1 /* EVTrackModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF9F826D1865455F003FE0A1 /* EVTrackModel.xcdatamodeld */; };
 		FF9F82791865DD6C003FE0A1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EAEE6731771474F00F9B195 /* CoreData.framework */; };
 		FF9F8288186741BC003FE0A1 /* DataConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F8287186741BC003FE0A1 /* DataConverter.m */; };
+		FFA190E3190067A800E04821 /* basestats.csv in Resources */ = {isa = PBXBuildFile; fileRef = FFA190E2190067A800E04821 /* basestats.csv */; };
 		FFA24D6718851441000D4455 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA24D6518851441000D4455 /* icon57.png */; };
 		FFA24D6818851441000D4455 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA24D6618851441000D4455 /* icon72.png */; };
 		FFA24D6B18851459000D4455 /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA24D6918851459000D4455 /* icon114.png */; };
@@ -1672,6 +1673,8 @@
 		FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EVTrackModel.xcdatamodel; sourceTree = "<group>"; };
 		FF9F8286186741BC003FE0A1 /* DataConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataConverter.h; sourceTree = "<group>"; };
 		FF9F8287186741BC003FE0A1 /* DataConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataConverter.m; sourceTree = "<group>"; };
+		FFA190E2190067A800E04821 /* basestats.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = basestats.csv; sourceTree = "<group>"; };
+		FFA190E41900686B00E04821 /* EVTrackModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EVTrackModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		FFA24D6518851441000D4455 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		FFA24D6618851441000D4455 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
 		FFA24D6918851459000D4455 /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
@@ -1864,6 +1867,7 @@
 				1EAEE68A177287E500F9B195 /* PokemonList.plist */,
 				1E2AFDE81798DA9D00D66660 /* GameList.plist */,
 				1EC9B299176BF29400BE668E /* EVTrack-Info.plist */,
+				FFA190E2190067A800E04821 /* basestats.csv */,
 				1EC9B29A176BF29400BE668E /* InfoPlist.strings */,
 				1EC9B29D176BF29400BE668E /* main.m */,
 				1EC9B29F176BF29400BE668E /* EVTrack-Prefix.pch */,
@@ -2874,6 +2878,7 @@
 				FF00664E184C34CE004BFE88 /* 094.png in Resources */,
 				FF006686184C34CE004BFE88 /* 150.png in Resources */,
 				FF006781184C34CE004BFE88 /* 634.png in Resources */,
+				FFA190E3190067A800E04821 /* basestats.csv in Resources */,
 				FF0064E5184C34CE004BFE88 /* 290.png in Resources */,
 				FF00661A184C34CE004BFE88 /* 041.png in Resources */,
 				FFCB7EFD184B2CE60038B387 /* poweranklet.png in Resources */,
@@ -3857,10 +3862,11 @@
 		FF9F826D1865455F003FE0A1 /* EVTrackModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FFA190E41900686B00E04821 /* EVTrackModel 3.xcdatamodel */,
 				FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */,
 				FF9F826E1865455F003FE0A1 /* EVTrackModel.xcdatamodel */,
 			);
-			currentVersion = FF0BD6071892B421007B066A /* EVTrackModel 2.xcdatamodel */;
+			currentVersion = FFA190E41900686B00E04821 /* EVTrackModel 3.xcdatamodel */;
 			path = EVTrackModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

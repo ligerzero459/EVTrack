@@ -2,7 +2,7 @@
 //  Pokemon.m
 //  EVTrack
 //
-//  Created by Ryan Mottley on 1/24/14.
+//  Created by Ryan Mottley on 4/18/14.
 //  Copyright (c) 2014 Kai Strife Productions. All rights reserved.
 //
 
@@ -32,6 +32,12 @@
 @dynamic spattack;
 @dynamic spdefense;
 @dynamic speed;
+@dynamic basehp;
+@dynamic baseatk;
+@dynamic basedef;
+@dynamic basespatk;
+@dynamic basespdef;
+@dynamic basespeed;
 @dynamic game;
 @dynamic pokedex;
 @dynamic recentPokemon;

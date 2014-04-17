@@ -2,7 +2,7 @@
 //  Pokemon.h
 //  EVTrack
 //
-//  Created by Ryan Mottley on 1/24/14.
+//  Created by Ryan Mottley on 4/18/14.
 //  Copyright (c) 2014 Kai Strife Productions. All rights reserved.
 //
 
@@ -31,6 +31,12 @@
 @property (nonatomic, retain) NSNumber * spattack;
 @property (nonatomic, retain) NSNumber * spdefense;
 @property (nonatomic, retain) NSNumber * speed;
+@property (nonatomic, retain) NSNumber * basehp;
+@property (nonatomic, retain) NSNumber * baseatk;
+@property (nonatomic, retain) NSNumber * basedef;
+@property (nonatomic, retain) NSNumber * basespatk;
+@property (nonatomic, retain) NSNumber * basespdef;
+@property (nonatomic, retain) NSNumber * basespeed;
 @property (nonatomic, retain) Game *game;
 @property (nonatomic, retain) Pokedex *pokedex;
 @property (nonatomic, retain) NSSet *recentPokemon;

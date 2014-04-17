@@ -30,6 +30,12 @@
     </entity>
     <entity name="Pokemon" representedClassName="Pokemon" syncable="YES">
         <attribute name="attack" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="baseatk" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="basedef" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="basehp" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="basespatk" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="basespdef" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="basespeed" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="defense" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="hp" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -53,10 +59,10 @@
     </entity>
     <elements>
         <element name="Battled" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Entity" positionX="9" positionY="153" width="128" height="45"/>
         <element name="Game" positionX="0" positionY="0" width="128" height="120"/>
         <element name="Games" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Pokedex" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="Pokemon" positionX="0" positionY="0" width="128" height="360"/>
-        <element name="Entity" positionX="9" positionY="153" width="128" height="45"/>
+        <element name="Pokemon" positionX="0" positionY="0" width="128" height="448"/>
     </elements>
 </model>

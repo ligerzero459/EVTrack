@@ -26,6 +26,7 @@
 {
     Pokedex *pokedex;
     Games *games;
+    NSArray *pokedexArray;
 }
 
 @end
@@ -55,6 +56,7 @@
     defaults = [NSUserDefaults standardUserDefaults];
     BOOL migratePokedex = [defaults boolForKey:@"migratePokedex"];
     BOOL migrateGames = [defaults boolForKey:@"migrateGames"];
+    BOOL addBaseStats = [defaults boolForKey:@"baseStats"];
     
     if (!migratePokedex)
     {
@@ -123,6 +125,13 @@
             }
         }
         [defaults setBool:YES forKey:@"migrateGames"];
+    }
+    if (!addBaseStats)
+    {
+        pokedexArray = [[DataManager manager] getPokedex];
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"basestats" ofType:@"csv"];
+        
     }
     
     return YES;
